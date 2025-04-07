@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <script src="https://kit.fontawesome.com/d3c45e919b.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/ico" href="favicon2.ico">
+    <title>MainWisdomPen.com</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+            width: 100%;
+            scroll-behavior: smooth;
+           
+        }
+
+       
+
+        body {
+overflow: auto;
+            font-family:  Arial, Helvetica, sans-serif;
+            margin: 0;
+            background-color: #e7e2e2d7;
+            padding: 0;
+           
+            height: 100%;
+            width: 100%;
+            
+        }
+
+        
+
+        header {
+            display: flex;
+            max-height: 100px;
+            text-align: center;
+            justify-content: center;
+            
+            
+            background-color: none;
+            color: #f1e8e8;
+            
+            
+        }
+    
+        li {
+            display: inline-block;
+            margin-right: 30px;
+            margin-left: 20px ;
+        }
+    
+        ul {
+            position: fixed;
+           z-index: 1; 
+            text-align: center;
+            min-width: 490px;
+            min-height: 6px;
+            border-radius: 39px;
+           margin-right: 20px;
+            margin-left: 20px;
+            margin-bottom: 10px;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            background-color: #4a4a4ced;
+            backdrop-filter: blur(20%);
+            box-shadow: 0px 0px 0px   #3e3e3f;
+            margin-top: 16px;
+        }
+    
+        li a {
+            
+            text-decoration: none;
+            color: #c2bcbc;
+            width: 50px;
+            height: 40px;
+            border-radius: 8px;
+            
+        }
+    
+        li a:hover {
+            text-decoration: none;
+            color: #fff7f7;
+        }
+    
+        header img {
+            position: fixed;
+        top: 15px; /* Adjust the top value to move the image down */
+        left: 50%; /* Adjust the left value if needed */
+        transform: translateX(-50%);
+        width: 60px;
+        }
+        header img:hover{
+            background-color: #353537;
+            border-radius: 70px;
+            margin-bottom: 9px;
+        }
+    
+                     body{
+                       overflow: auto;
+                        font-family: 'Roboto' , sans-serif;
+                        margin: 0;
+                        background-color: #e7e2e2d7;
+                        padding: 0;
+                       
+                        height: 100%;
+                        width: 100%;
+                    }
+.reveal{
+    position: relative ;
+   transform: translateY(100px);
+   opacity: 0;
+   transition: all 1.5s ease;
+}
+.reveal.active{
+    transform: translateY(0px);
+    opacity: 1;
+    
+
+}
+        
+ 
+
+        #page2 {
+           
+            min-height: 730px;
+            width: 100%;
+            
+            
+            background-image: linear-gradient( rgb(225, 219, 219) 20%, rgb(241, 241, 241) );
+            margin-right: 20px; 
+    margin-left: 20px ;
+            text-align: center;
+           
+        }
+#page2 h2{
+    margin-top: 390px;
+    font-size: 57px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    
+}
+#page2 p{
+   
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 50px;
+    
+}
+
+
+
+#page2 a {
+    
+    padding: 15px 30px;
+    background-color:#274225;
+    color: #fff;
+    border-radius: 10px;
+    
+    text-decoration: none;
+   
+    font-size: 18px;
+}
+.page3 a {
+    
+    padding: 15px 30px;
+    background-color: #274225;
+    color: #fff;
+    border-radius: 10px;
+    
+    text-decoration: none;
+   
+    font-size: 18px;
+}
+.page3 a:hover{
+    background-color: #336131;
+    
+    
+}
+#page2 a:hover{
+    background-color:#336131;
+}
+
+
+        #page1 {
+            min-height: 770px;
+            min-width: 100%;
+            background-image: linear-gradient(white 10%, rgb(225, 219, 219));
+scroll-snap-align: none;
+margin-left: 20px;
+margin-right: 20px ;
+        }
+
+       #page1 h1{
+        margin-top: 420px;
+       text-align: center;
+        font-size: 68px;
+        text-wrap: balance;
+        
+
+       }
+
+       #page1 p{
+        margin-top: 30px;
+        
+       text-align: center;
+        font-size: 30px;
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-bottom: 40px;
+        
+       }
+       
+       
+        
+       
+
+        .page3 {
+            
+            
+            margin-right: 20px; 
+    margin-left: 20px ;
+    margin-bottom: 100px;
+            min-height: 850px;
+            min-width: 100%;
+            text-align: center;
+            background-image: linear-gradient(rgb(241, 241, 241) 60%, rgb(235, 231, 231));
+        }
+        .page3 h2{
+            margin-top: 447px;
+            margin-bottom: 78px;
+            font-size: 46px;
+        }
+        .stay .reveal{
+            min-height: 700px;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .reveal{
+            scroll-snap-type: mandatory;
+        }
+
+        .twitter {
+            display: flex;
+            
+            margin-top: 10px;
+            background-color: #2e2d2d;
+            color: #fff;
+            text-align: center;
+            min-height: 100px;
+        }
+        
+        #Report{
+            text-decoration: none;
+            height: 40px;
+            text-align: center;
+            justify-content: center;
+            margin-top: 20px;
+            margin-left: 9px;
+        }
+        .twitter div{
+            margin-left: 40px;
+            margin-top: 20px;
+text-align: start;
+font-size: 20px;
+
+color: aliceblue;
+
+
+
+
+        }
+        .twitter a {
+
+            text-align: start;
+text-decoration: none;
+padding: 7px;
+margin-right: 20px;
+border-radius: 10px;
+margin-top: 10px;
+color: #000000;
+background-color: rgb(166, 166, 166);
+        }
+        .twitter a:hover{
+            background-color: #2554ac;
+        }
+        .twitter p{
+            font-size: 12px;
+            margin-bottom: 16px;
+        }
+        .twitter button{
+            margin-left: 10px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px rgb(28, 27, 27);
+            margin-right: 6px;
+            font-size: 10px;
+        }
+        .twitter button:hover{
+            background-color: #2554ac;
+        }
+        .last3{
+            background-color: #2e2d29;
+            
+        }
+        .last3 p{
+           text-align: center;
+        }
+       
+
+        @media (max-width: 800px) {
+            #page1, #page2, .page3 {
+                
+                
+                
+            }
+        }
+        
+
+        @media (max-width: 590px) {
+          
+             #page1 h1 {
+              font-size: 43px;
+              
+               margin-left: 10px;
+               margin-right: 10px;
+            }
+            #page1 p{
+              font-size: 24px ;
+              margin-left: 20px;
+              margin-right: 20px ;
+            }
+          #page2 p{
+            font-size: 24px;
+            margin-left: 20px;
+            margin-right: 20px;
+          }
+         
+           header ul{
+min-width: 90%;
+margin-right: auto;
+margin-left: auto;
+            }
+        }
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const getStartedLink = document.getElementById('getStartedLink');
+    
+            // Function to handle the click event
+            function handleGetStartedClick(event) {
+                event.preventDefault();
+                const customInput = document.createElement('input');
+                customInput.setAttribute('type', 'text');
+                customInput.setAttribute('placeholder', 'Enter your preference (dark/light)');
+                const confirmButton = document.createElement('button');
+                confirmButton.textContent = 'Confirm';
+                const cancelButton = document.createElement('button');
+                cancelButton.textContent = 'Cancel';
+                const container = document.createElement('div');
+                container.appendChild(customInput);
+                container.appendChild(confirmButton);
+                container.appendChild(cancelButton);
+                const popup = window.open('', '_blank', 'width=400,height=200');
+                popup.document.body.appendChild(container);
+    
+                confirmButton.addEventListener('click', function() {
+                    const preference = customInput.value.trim().toLowerCase();
+                    if (preference === 'dark') {
+                        // Redirect to dark mode page
+                        window.location.href = 'dark_mode.html';
+                        popup.close();
+                    } else if (preference === 'light') {
+                        // Redirect to light mode page
+                        window.location.href = 'light_mode.html';
+                        popup.close();
+                    } else {
+                        // Invalid input
+                        alert("Invalid preference. Please enter 'dark' or 'light'.");
+                    }
+                });
+    
+                cancelButton.addEventListener('click', function() {
+                    popup.close();
+                });
+            }
+    
+            // Add event listener to the link
+            getStartedLink.addEventListener('click', handleGetStartedClick);
+        });
+    </script>
+    
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+    <header>
+        <ul>
+            <li><a href="#page2">WisdomPen Ai</a></li>
+           <li ><a href="index.html"><img src="Logo.png" alt="Home"></a></li>
+        <li><a href="#page3">Blogs/Updates</a></li>
+        </ul>
+    </header>
+
+
+<main>
+    <section id="page1">
+        <div class="font12 ">
+            <h1 class="text reveal"> <span style="color: #161515;">Revolution In Knowldege </h1>
+            <p class="font2 reveal" style="color: #2e2d2d;">To answer your questions on <span style="color: #000000;">Islam</span> with accuracy</p>
+        </div>
+    </section>
+
+    <section id="page2">
+        <div class="page4 reveal">
+            
+        <h2 >WisdomPen Ai</h2>
+        <p >To answer your questions on Islam with accuracy</p>
+    
+        
+       
+        <a id="link" href="animation.html">Start</a>
+        
+        
+      </div>
+        </section>
+   
+
+    <section class="page3" id="page3" >
+        <div class="the3 reveal ">
+        <h2 class="text">Blogs/Updates</h2>
+       
+        <a href="Service.html" class="submit-button2">News/info</a>
+        </div>
+        <div class="stay"></div>
+        <script> type="text/javascript">
+window. addEventListener ('scroll', reveal);
+function reveal(){
+
+var reveals = document.querySelectorAll(' .reveal');
+
+for (var i = 0; i < reveals.length; i++){
+var windowheight = window.innerHeight;
+var revealtop = reveals[i].getBoundingClientRect().top;
+var revealpoint = 100;
+
+if (revealtop < windowheight - revealpoint){
+    reveals[i].classList.add('active');
+}
+else{
+    reveals[i].classList.remove('active');
+}
+}
+
+}
+
+</script>
+    </section>
+</main>
+<script>
+    // Set link text and href based on values in localStorage
+    var storedLinkText = localStorage.getItem('linkText');
+    var storedHref = localStorage.getItem('linkHref');
+    if (storedLinkText) {
+        document.getElementById('link').innerText = storedLinkText;
+    }
+    if (storedHref) {
+        document.getElementById('link').setAttribute('href', storedHref);
+    }
+</script>
+
+<footer class="twitter">
+<div>
+    <p>Follow for more info</p>
+    <a href="https://youtube.com/@WisdomPenai?si=jsJIH2FMwkS3NIEi">
+        <i class="fa-brands fa-youtube"></i>
+    </a> 
+    <a href="https://x.com/WisdomPenai/status/1751739551230410951?s=20">
+        <i class="fa-brands fa-x-twitter"></i>
+</a>
+
+</div>
+<a id="Report" href="https://forms.gle/oNUpVPp7xvdY8JvM9" target="_blank">Report a bug</a>
+</footer>
+<footer class="last3">
+    <p>&copy; 2024 WisdomPen. All rights reserved.</p>
+</footer>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

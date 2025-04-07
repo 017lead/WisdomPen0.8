@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Payments Dashboard</title>
+    <style>
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f2f2f2;
+            border-bottom: 1px solid #e0e0e0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-weight: bold;
+        }
+        
+        .profile a {
+            color: #007aff;
+            text-decoration: none;
+        }
+        
+        aside {
+            width: 200px;
+            background-color: #f9f9f9;
+            border-right: 1px solid #e0e0e0;
+            padding-top: 60px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            overflow-y: auto;
+        }
+        
+        aside nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        aside nav ul li {
+            padding: 15px 20px;
+        }
+        
+        aside nav ul li a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+        
+        main {
+            margin-left: 200px;
+            padding: 80px 20px 20px 20px;
+            flex: 1;
+            background-color: #fff;
+        }
+        
+        .card-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .card-balance, .upcoming-payment {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 100px;
+            background-image: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .balance-details h1 {
+            margin: 5px 0;
+            font-size: 24px;
+        }
+        
+        .balance-details a, .next-payment a {
+            color: #007aff;
+            text-decoration: none;
+        }
+        
+        .upcoming-payment button {
+            background-color: #007aff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #f2f2f2;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        footer a {
+            color: #007aff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"> Card</div>
+        <div class="profile"><a href="#">Jane ▾</a></div>
+    </header>
+    <aside>
+        <nav>
+            <ul>
+                <li><a href="#">Payments</a></li>
+                <li><a href="#">Installments</a></li>
+                <li><a href="#">Statements</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <div class="card-info">
+            <div class="card-balance">
+                <div class="card-image"></div>
+                <div class="balance-details">
+                    <p>Card Balance</p>
+                    <h1>$1,682.55</h1>
+                    <p>$4,000.65 Available</p>
+                    <a href="#">Balance Details</a>
+                </div>
+                <div class="next-payment">
+                    <p>Next Payment May 31</p>
+                    <p>Your bill is scheduled to be paid on this date.</p>
+                    <a href="#">Manage Scheduled Payments</a>
+                </div>
+            </div>
+            <div class="upcoming-payment">
+                <p>Upcoming Payment</p>
+                <p>A payment of $1,211.43 will be made on May 31.</p>
+                <button>Pay More</button>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>

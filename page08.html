@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    header {
+        display: flex;
+        max-height: 200px;
+        text-align: center;
+        justify-content: center;
+        max-width: 100%;
+        backdrop-filter: blur(20px);
+        background-color: #171718;
+        color: #ffffff;
+        
+        
+    }
+
+    li {
+        display: inline-block;
+        margin-right: 30px;
+        margin-left: 20px ;
+    }
+
+    ul {
+        text-align: center;
+        margin-bottom: 10px;
+        padding-bottom: 20px;
+        padding-top: 30px;
+    }
+
+    li a {
+        text-decoration: none;
+        color: #c2bcbc;
+        width: 50px;
+        height: 40px;
+        border-radius: 8px;
+        
+    }
+
+    li a:hover {
+        text-decoration: none;
+        color: #fff7f7;
+    }
+
+    header img {
+        position: absolute;
+    top: 1px; /* Adjust the top value to move the image down */
+    left: 50%; /* Adjust the left value if needed */
+    transform: translateX(-50%);
+    width: 70px;
+    }
+    header img:hover{
+        background-color: #464648;
+        border-radius: 70px;
+        margin-bottom: 9px;
+    }
+
+    body {
+        overflow: auto;
+        font-family: 'Roboto' , sans-serif;
+        margin: 0;
+        background-color: #e7e2e2d7;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    main {
+        max-width: 870px;
+        min-height: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 13px rgba(0, 0, 0, 0.1);
+        margin-bottom: 100px;
+
+        text-align: center;
+    }
+
+    main h1 {
+        font-size: 30px;
+        margin-top: 50px;
+        margin-bottom: 47px;
+    }
+
+    main p {
+        font-size: 15px;
+        line-height: 1.9;
+
+        margin-bottom: 50px;
+        text-wrap: balance;
+        margin-left: 36px;
+        margin-right: 36px;
+    }
+
+    main img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .suggestions {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .suggestions :hover {
+        background-color: #dadede;
+        transition: background-color 0.3s ease-in-out;
+      
+     } 
+    .card {
+        width: calc(33.33% - 20px);
+        background-color: #f4f8f8;
+        border-radius: 8px;
+        box-shadow: 0 4px 9px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        margin-top: 90px;
+       text-decoration: none;
+        overflow: hidden;
+        text-align: center;
+    }
+    a{
+        text-decoration: none;
+    }
+
+    .card img {
+        width: 30%;
+        height: auto;
+        margin-top: 13px;
+        border-bottom: 1px solid #ffffff;
+    }
+
+    .card-content {
+        padding: 20px;
+        text-decoration: none;
+    }
+
+    .card-content h2 {
+        font-size: 20px;
+        color: #171718;
+        margin-bottom: 10px;
+        text-decoration: none;
+    }
+
+    .card-content p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #171718;
+        text-decoration: none;
+        text-wrap: balance;
+    }
+   hr{
+    margin: 20px auto;
+    border: none;
+    height: 2px;
+    color: #171718;
+    background-color: #a09c9c;
+    width: 70%; /* Adjust the width as needed */
+   }
+   @media (max-width: 570px) {
+    main {
+        margin-left: 10px;
+        margin-left: 10px;
+        
+        
+    }
+}
+   span{
+    font-size: 26px;
+    font-weight: 600;
+   }
+</style>
+</head>
+<body>
+<header>   
+    <ul>
+        <li><a href="Chat.html">WisdomPen Ai</a></li>
+        <li ><a href="index.html"><img src="Logo.png" alt="Home"></a></li>
+        <li><a href="Service.html">Blogs/Updates</a></li>
+    </ul>
+</header>
+
+<main>
+    <h1>WisdomPen Update: 0<span style="color: #6b5b95;">.8</span></h1>
+    <hr>
+    <p style="margin-bottom: 20px;"> <span >New Improvements</span> <br>
+<br>
+        -New Ui 
+        <br>
+        -Model Upgrade to gpt o3-mini (medium)
+        <br>
+        -Rete limits to 28 requests per day (max)
+        <br>
+        -Image now supported (input)
+        <br>
+        -Quality of life bug fixes
+        <br>
+        -Little faster responses (some cases)
+        <br>
+        -Overall better <br>
+                <br>
+        With this new update, we are excited to announce that we are now in the process of
+        making WisdomPen a more reliable and accurate source of Islamic knowledge. Which is important 
+        as we get closer to the launch of WisdomPen to the public.
+       Update 0.8 is a significant step towards achieving this goal. As gpt o3-mini (medium) is a more
+        advanced model that can provide more relevant responses to user queries. And also we have seen less
+        helucinations and more accurate responses. Its important the user has close to 0 percent made up 
+        sources and information from the model. And also with this update we are also adding rate limits to our 
+        service as this will help us to manage the load on our servers and ensure that all users have access to the service,
+        for free, our commitment to providing a reliable and best Islamic knowledge AI is important and this step allows that.
+        Users will get 28 requests per day, which is 840 requests per month. There will be noticeable delay in responses
+        as model thinks before answering. But for simple questions may see little faster response. 
+        Ui is important for better experience, so there is a more simple easy ui which will enable all users accross different deviecs
+        to get the best experience.
+    <br>
+        <br>
+        <span>Beta testing for inconsistencies and bugs </span> <br>
+        <br>
+        Firstly, WisdomPen will provide sourced-based responses,
+        ensuring that answers are backed up by evidence to authenticate
+        but there will be times when ai would helucinations or be 
+        interprating information worng, we are strict in those mistakes so we
+        want the beta testers to send us those responses through (Report a bug) in the chat ui.
+        This will help in Improving the models responses. Also for any ui bugs like chat box not
+        working or ai responses not being displayed or running out of request, send the issue with a 
+        sreenshot.  <br>
+        <br>
+       <span> Vison/Hopes </span><br>
+        <br>
+          INSHALLAH, we are hoping to make WisdomPen 0.8 a reliable and accurate source of Islamic knowledge.
+          and 0.8 is a significant leap form non reasoning models, as we see less helucinations and more
+          accurate responses. We see WisdomPen in 2027 or any Ai being more reliable then some scholars. our goal
+          is not to replace scholars but to provide a tool for Muslims and non Muslims to get the best information
+          about Islam. 
+        <br>
+        INSHALLAH, WisdomPen is set to achive 70 percent accuracy this year. And 80 percent is the goal for us to make this public.
+       Hopefully, we will be able to achieve this goal and provide a reliable and accurate source of Islamic knowledge for all.
+        </p>
+    </main>
+<hr>
+<section>
+    <div class="suggestions">
+        <a href="wisdomcloser.html">
+        <div class="card">
+            
+            <img src="Logo.png" alt="Image 1">
+            <div class="card-content">
+                <h2>WisdomPen Sky</h2>
+                <p>First</p>
+            </a>
+            </div>
+        </div>
+        <a href="pagew.html">
+        <div class="card">
+            
+            <img src="Logo.png" alt="Image 2">
+            </a>
+            <div class="card-content">
+                <h2>WisdomPen Bright</h2>
+                <p>oct-05-2024</p>
+               
+            </div>
+        </div>
+        <a href="">
+        <div class="card">
+            </a>
+            <img src="qustion.png" alt="Image 3">
+            <div class="card-content">
+                <h2>Coming Soon</h2>
+                <p>Not here yet</p>
+               
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="soft"></div>
+</body>
+</html>
