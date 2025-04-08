@@ -74,8 +74,9 @@
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
-            height: calc(100vh - 160px);
+            height: calc(100vh - 160px - env(safe-area-inset-bottom));
             overflow-y: hidden;
+            padding-bottom: env(safe-area-inset-bottom);
         }
 
         /* Chat Messages Area */
@@ -235,6 +236,8 @@
             background-color: rgba(15, 15, 15, 0.95);
             backdrop-filter: blur(20px);
             z-index: 1000;
+            transform: translateZ(0);
+            will-change: transform;
         }
 
         #overlaychat {
@@ -549,14 +552,19 @@
 
             #overlaybox {
                 padding: 12px 16px 20px;
+                position: sticky;
+                bottom: 0;
+                padding-bottom: calc(env(safe-area-inset-bottom) + 10px);
             }
 
             #overlaychat {
                 padding: 10px 14px;
+                margin-bottom: env(safe-area-inset-bottom);
             }
 
-            .chat-messages {
+            .chat-container {
                 padding: 10px 5px;
+                padding-bottom: 80px;
             }
 
             .user-input {
@@ -1808,6 +1816,25 @@
         document.addEventListener('DOMContentLoaded', async function() {
             // ...existing code...
             updateRequestCounter(); // Add this line to initialize the counter
+        });
+
+        // Add this after your existing JavaScript
+        userInput.addEventListener('focus', function() {
+            // Add slight delay to ensure keyboard is shown
+            setTimeout(() => {
+                window.scrollTo(0, document.body.scrollHeight);
+                userInput.scrollIntoView({ behavior: 'smooth' });
+            }, 300);
+        });
+
+        // Handle resize events (for virtual keyboard)
+        let originalHeight = window.innerHeight;
+        window.addEventListener('resize', function() {
+            if (window.innerHeight < originalHeight) {
+                // Keyboard is showing
+                document.body.scrollTop = document.body.scrollHeight;
+                document.documentElement.scrollTop = document.documentElement.scrollHeight;
+            }
         });
     </script>
 </body>
