@@ -77,6 +77,9 @@
             height: calc(100vh - 160px - env(safe-area-inset-bottom));
             overflow-y: hidden;
             padding-bottom: env(safe-area-inset-bottom);
+            padding-bottom: 100px; /* Add space for fixed input box */
+            height: calc(100vh - 80px); /* Adjust height to account for header and input */
+            overflow-y: auto;
         }
 
         /* Chat Messages Area */
@@ -97,6 +100,8 @@
             scrollbar-width: thin;
             scrollbar-color: rgba(80, 80, 80, 0.6) rgba(0, 0, 0, 0.1);
             padding-right: 20px;
+            margin-bottom: 0; /* Remove bottom margin */
+            padding-bottom: 20px;
         }
 
         .chat-messages::-webkit-scrollbar {
@@ -232,83 +237,98 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 20px 30px 30px;
+            width: 100%;
+            padding: 16px 24px;
             background-color: rgba(15, 15, 15, 0.95);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            /* Remove this line to eliminate the white divider */
+            /* border-top: 1px solid rgba(255, 255, 255, 0.1); */
             z-index: 1000;
-            transform: translateZ(0);
-            will-change: transform;
         }
 
         #overlaychat {
-            position: relative;
             display: flex;
             align-items: center;
+            gap: 12px;
+            width: 100%;
             max-width: 1000px;
             margin: 0 auto;
-            background-color: rgba(30, 30, 30, 0.6);
-            border-radius: 16px;
-            padding: 14px 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 0;
+            background: transparent;
         }
 
         .user-input {
             flex: 1;
-            background-color: transparent;
-            border: none;
-            color: #f1f1f1;
+            min-height: 47px;
+            max-height: 140px;
+            padding: 12px;
             font-size: 16px;
-            line-height: 1.5;
-            padding: 12px 0;
-            resize: none;
-            min-height: 24px;
-            max-height: 200px;
+            line-height: 1.4;
+            background: rgba(255, 255, 255, 0.008);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #f1f1f1;
             outline: none;
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Inter', Arial, sans-serif;
+            resize: none; /* Remove resize handle */
+            transition: background-color 0.2s ease;
             scrollbar-width: thin;
-            scrollbar-color: rgba(80, 80, 80, 0.6) rgba(0, 0, 0, 0.1);
+            scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
         }
 
-        .user-input::placeholder {
-            color: rgba(255, 255, 255, 0.4);
-        }
-
+        /* Custom scrollbar for Webkit browsers */
         .user-input::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
+            width: 4px;
         }
 
         .user-input::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            margin: 5px;
+            background: transparent;
         }
 
         .user-input::-webkit-scrollbar-thumb {
-            background: rgba(80, 80, 80, 0.6);
-            border-radius: 8px;
-            border: 2px solid rgba(0, 0, 0, 0.1);
-            transition: background 0.2s ease;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
         }
 
-        .user-input::-webkit-scrollbar-thumb:hover {
-            background: rgba(100, 100, 100, 0.8);
+        /* Mobile styles */
+        @media only screen and (max-width: 768px) {
+            .user-input {
+                background: transparent;
+                border: none;
+                scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+            }
+
+            .user-input::-webkit-scrollbar-thumb {
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        /* Update mobile styles */
+        @media only screen and (max-width: 768px) {
+            .user-input {
+                background: transparent;
+                border: none;
+            }
+
+            .user-input:focus {
+                background: transparent;
+                border: none;
+            }
         }
 
         .send {
-            background-color: #d2f2f0;
-            color: rgb(17, 17, 17);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background-color: #10a37f;
+            color: white;
             border: none;
-            border-radius: 7px;
-            width: 44px;
-            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.2s ease;
-            margin-left: 12px;
-            box-shadow: 0 2px 8px rgba(212, 237, 237, 0.3);
+            flex-shrink: 0;
         }
 
         .send:hover {
@@ -551,30 +571,130 @@
             }
 
             #overlaybox {
-                padding: 12px 16px 20px;
-                position: sticky;
+                position: fixed;
                 bottom: 0;
-                padding-bottom: calc(env(safe-area-inset-bottom) + 10px);
+                left: 0;
+                right: 0;
+                width: 100%;
+                padding: 12px 16px;
+                background-color: rgba(0, 0, 0, 0);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                z-index: 1000;
+                box-shadow: 0 -1px 20px rgba(0, 0, 0, 0);
+                padding-bottom: max(12px, env(safe-area-inset-bottom));
             }
 
             #overlaychat {
-                padding: 10px 14px;
-                margin-bottom: env(safe-area-inset-bottom);
-            }
-
-            .chat-container {
-                padding: 10px 5px;
-                padding-bottom: 80px;
-            }
-
-            .user-input {
-                font-size: 14px;
-                padding: 10px 0;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto;
+                padding: 4px;
+                border-radius: 16px;
+                background: rgba(255, 255, 255, 0);
+                border: 1px solid rgba(255, 255, 255, 0.142);
             }
 
             .send {
-                width: 36px;
-                height: 36px;
+                width: 40px;
+                height: 40px;
+                border-radius: 12px;
+                background-color: #10a37f;
+                margin-right: 2px;
+            }
+
+            .file-upload-label {
+                width: 40px;
+                height: 40px;
+                border-radius: 12px;
+                margin-left: 2px;
+            }
+
+            .chat-container {
+                padding-bottom: calc(80px + env(safe-area-inset-bottom));
+            }
+
+            /* Ensure content doesn't hide behind the input box */
+            .chat-messages {
+                margin-bottom: calc(80px + env(safe-area-inset-bottom));
+            }
+        }
+
+        /* Update mobile styles for messages and container */
+        @media only screen and (max-width: 768px) {
+            .chat-messages {
+                padding: 12px;
+                margin-bottom: calc(80px + env(safe-area-inset-bottom));
+                
+                height: calc(100vh - 60px - env(safe-area-inset-bottom));
+            }
+
+            .chat-messages li {
+                width: 96%; /* Make messages wider */
+                padding: 20px;
+               
+                margin: 8px auto;
+                max-width: none; /* Remove max-width constraint for mobile */
+                border-radius: 12px;
+            }
+
+            .chat-container {
+                padding: 0;
+              
+                height: calc(100vh - 60px);
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+            }
+
+            #overlaybox {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                padding: 12px 8px; /* Reduced horizontal padding */
+                background-color: rgba(15, 15, 15, 0.95);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                z-index: 1000;
+            }
+
+            #overlaychat {
+                gap: 8px;
+                padding: 4px 8px;
+            }
+
+            .user-input {
+                padding: 12px;
+                font-size: 16px; /* Better for mobile readability */
+            }
+        }
+
+        /* Update mobile styles for messages */
+        @media only screen and (max-width: 768px) {
+            .chat-messages li {
+                width: 96%;
+                padding: 20px;
+                margin: 8px auto;
+                max-width: none;
+                border-radius: 12px;
+                background-color: #1f1f1f47 !important; /* Force black background */
+            }
+
+            .chat-messages .user-message,
+            .chat-messages .assistant-message {
+                background-color: #1a1a1a0b !important; /* Override any existing background */
+            }
+
+            .chat-messages li pre {
+                background-color: rgba(255, 255, 255, 0.05); /* Slightly visible code blocks */
+            }
+
+            .chat-messages li code {
+                background-color: rgba(255, 255, 255, 0.05); /* Slightly visible inline code */
             }
         }
 
@@ -1164,6 +1284,50 @@
                 padding: 3px 6px;
             }
         }
+
+        /* Add to your existing CSS */
+        @media only screen and (max-width: 768px) {
+            .send {
+                width: 44px;
+                height: 44px;
+                border-radius: 50% !important;
+                background-color: #10a37f;
+                margin-right: 2px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+            }
+
+            /* Replace arrow with material icons send icon */
+            .send::before {
+                content: 'send';
+                font-family: 'Material Icons';
+                font-size: 20px;
+                color: white;
+                font-weight: normal;
+                font-style: normal;
+                line-height: 1;
+                letter-spacing: normal;
+                text-transform: none;
+                display: inline-block;
+                white-space: nowrap;
+                word-wrap: normal;
+                direction: ltr;
+            }
+
+            .send:hover {
+                transform: translateY(-2px);
+                background-color: #0d8a6c;
+            }
+
+            /* Hide the original text content */
+            .send {
+                font-size: 0;
+                text-indent: -9999px;
+                line-height: 0;
+            }
+        }
     </style>
     <script>
     // Replace the existing redirect logic
@@ -1206,7 +1370,7 @@
                         <span class="material-icons file-icon-active">close</span>
                     </label>
                     <input type="file" id="file-upload" accept=".txt,image/*" style="display: none;">
-                    <button class="send" id="send">Find</button>
+                    <button class="send" id="send" aria-label="Send message">Find</button>
                 </div>
             </div>
             <!-- Sidebar for displaying sources (kept but not used for references in this version) -->
