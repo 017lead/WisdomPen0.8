@@ -14,12 +14,20 @@
             align-items: center;
             min-height: 100vh;
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+            width: 100%;
         }
 
         .loading-container {
             text-align: center;
             opacity: 0;
             animation: fadeIn 0.8s ease forwards;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .logo {
@@ -29,6 +37,8 @@
             filter: drop-shadow(0 0 12px rgba(216, 239, 234, 0.2));
             animation: pulse 3s infinite ease-in-out;
             transition: all 0.3s ease;
+            max-width: 100%;
+            object-fit: contain;
         }
 
         .loading-text {
@@ -39,6 +49,8 @@
             margin-top: 20px;
             opacity: 0;
             animation: fadeInText 0.5s ease forwards 0.8s;
+            width: 100%;
+            text-align: center;
         }
 
         @keyframes fadeIn {

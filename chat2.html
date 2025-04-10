@@ -264,7 +264,7 @@
             max-height: 140px;
             padding: 12px;
             font-size: 16px;
-            line-height: 1.4;
+            line-height: 1.6;
             background: rgba(255, 255, 255, 0.008);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
@@ -274,6 +274,10 @@
             transition: background-color 0.2s ease;
             scrollbar-width: thin;
             scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+            letter-spacing: -0.003em;
+            word-spacing: 0.05em;
+            font-weight: 500;
         }
 
         /* Custom scrollbar for Webkit browsers */
@@ -295,11 +299,12 @@
             .user-input {
                 background: transparent;
                 border: none;
-                scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
-            }
-
-            .user-input::-webkit-scrollbar-thumb {
-                background-color: rgba(0, 0, 0, 0.3);
+                font-size: 16px;
+                line-height: 1.6;
+                letter-spacing: -0.003em;
+                word-spacing: 0.05em;
+                font-weight: 400;
+                font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
             }
         }
 
@@ -320,7 +325,8 @@
             width: 40px;
             height: 40px;
             border-radius: 10px;
-            background-color: #10a37f;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: #3a3c3b5c;
             color: white;
             border: none;
             display: flex;
@@ -332,7 +338,7 @@
         }
 
         .send:hover {
-            background-color: #4bb0ae;
+            background-color: #343636;
             transform: translateY(1px);
             box-shadow: 0 4px 12px rgba(203, 222, 241, 0.4);
         }
@@ -562,12 +568,18 @@
             }
 
             header h1 {
-                font-size: 18px;
+                font-size: 14px; /* Smaller font size for mobile */
             }
 
             .language-toggle, #Report {
                 padding: 6px 10px;
-                font-size: 13px;
+                font-size: 12px; /* Smaller font size for buttons */
+            }
+
+            #request-counter {
+                font-size: 10px; /* Smaller font size for counter */
+                padding: 3px 6px;
+                margin-left: 8px; /* Reduced margin */
             }
 
             #overlaybox {
@@ -577,7 +589,7 @@
                 right: 0;
                 width: 100%;
                 padding: 12px 16px;
-                background-color: rgba(0, 0, 0, 0);
+                background-color: rgba(114, 112, 112, 0);
                 backdrop-filter: blur(20px);
                 -webkit-backdrop-filter: blur(20px);
                 z-index: 1000;
@@ -602,7 +614,7 @@
                 width: 40px;
                 height: 40px;
                 border-radius: 12px;
-                background-color: #10a37f;
+                background-color: #3a3b3b23;
                 margin-right: 2px;
             }
 
@@ -681,12 +693,12 @@
                 margin: 8px auto;
                 max-width: none;
                 border-radius: 12px;
-                background-color: #1f1f1f47 !important; /* Force black background */
+                background-color: #32323247 !important; /* Force black background */
             }
 
             .chat-messages .user-message,
             .chat-messages .assistant-message {
-                background-color: #1a1a1a0b !important; /* Override any existing background */
+                background-color: #2f2e2e1e !important; /* Override any existing background */
             }
 
             .chat-messages li pre {
@@ -1291,7 +1303,8 @@
                 width: 44px;
                 height: 44px;
                 border-radius: 50% !important;
-                background-color: #10a37f;
+               border: 1px solid #4f5150;
+                background-color: #40424130;
                 margin-right: 2px;
                 display: flex;
                 align-items: center;
@@ -1364,7 +1377,7 @@
                     <div class="file-list" id="file-list"></div>
                 </div>
                 <div id="overlaychat">
-                    <textarea class="user-input" id="user-input" placeholder="Type Your Questions Here.."></textarea>
+                    <textarea class="user-input" id="user-input" placeholder="Ask an Islamic question"></textarea>
                     <label for="file-upload" class="file-upload-label">
                         <span class="material-icons file-icon">add</span>
                         <span class="material-icons file-icon-active">close</span>
@@ -1490,7 +1503,7 @@
                 chatContainer.classList.add('rtl');
                 sendButton.textContent = 'ابحث';
                 testElement.textContent = 'اختبار تجريبي: 0.7.9';
-                userInput.setAttribute('placeholder', 'اكتب سؤالك هنا...');
+                userInput.setAttribute('placeholder', 'اطرح سؤالاً إسلامياً'); // Arabic placeholder
                 languageToggle.textContent = 'English';
                 document.querySelectorAll('.chat-messages li').forEach(li => {
                     if (li.textContent.includes('You:')) li.textContent = li.textContent.replace('You:', 'أنت:');
@@ -1499,7 +1512,7 @@
                 chatContainer.classList.remove('rtl');
                 sendButton.textContent = 'Find';
                 testElement.textContent = 'Beta Testing: 0.7.9';
-                userInput.setAttribute('placeholder', 'Type Your Questions Here..');
+                userInput.setAttribute('placeholder', 'Ask an Islamic question'); // English placeholder
                 languageToggle.textContent = 'عربي';
                 document.querySelectorAll('.chat-messages li').forEach(li => {
                     if (li.textContent.includes('أنت:')) li.textContent = li.textContent.replace('أنت:', 'You:');
