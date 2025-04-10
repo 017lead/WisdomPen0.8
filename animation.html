@@ -12,9 +12,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh; /* Changed from min-height to height */
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
             width: 100%;
+            overflow: hidden; /* Prevent scrolling */
         }
 
         .loading-container {
@@ -28,22 +29,22 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            max-height: 100vh; /* Ensure container doesn't exceed viewport height */
         }
 
         .logo {
-            width: 180px;
-            height: 180px;
+            width: clamp(120px, 20vw, 180px); /* Responsive size with minimum and maximum values */
+            height: auto; /* Maintain aspect ratio */
             margin-bottom: 24px;
             filter: drop-shadow(0 0 12px rgba(216, 239, 234, 0.2));
             animation: pulse 3s infinite ease-in-out;
             transition: all 0.3s ease;
-            max-width: 100%;
             object-fit: contain;
         }
 
         .loading-text {
             color: #f1f1f1;
-            font-size: 20px;
+            font-size: clamp(16px, 2vw, 20px); /* Responsive font size */
             font-weight: 300;
             letter-spacing: 0.3px;
             margin-top: 20px;
