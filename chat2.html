@@ -611,11 +611,16 @@
             }
 
             .send {
-                width: 40px;
-                height: 40px;
-                border-radius: 12px;
-                background-color: #3a3b3b23;
+                width: 42px;
+                height: 42px;
+                border-radius: 50% !important;
+                border: 1px solid #4f5150;
+                background-color: #40424130;
                 margin-right: 2px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
             }
 
             .file-upload-label {
@@ -1501,7 +1506,7 @@
             if (isArabic) {
                 chatContainer.classList.add('rtl');
                 sendButton.textContent = 'ابحث';
-                testElement.textContent = 'اختبار تجريبي: 0.7.9';
+                testElement.textContent = 'اختبار تجريبي: 0.8.0';
                 userInput.setAttribute('placeholder', 'اطرح سؤالاً إسلامياً'); // Arabic placeholder
                 languageToggle.textContent = 'English';
                 document.querySelectorAll('.chat-messages li').forEach(li => {
@@ -1510,7 +1515,7 @@
             } else {
                 chatContainer.classList.remove('rtl');
                 sendButton.textContent = 'Find';
-                testElement.textContent = 'Beta Testing: 0.7.9';
+                testElement.textContent = 'Beta Testing: 0.8.0';
                 userInput.setAttribute('placeholder', 'Ask an Islamic question'); // English placeholder
                 languageToggle.textContent = 'عربي';
                 document.querySelectorAll('.chat-messages li').forEach(li => {
