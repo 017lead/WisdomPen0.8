@@ -1309,22 +1309,24 @@
             .send {
                 width: 44px;
                 height: 44px;
-                border-radius: 50% !important;
-               border: 1px solid #4f5150;
-                background-color: #40424130;
-                margin-right: 2px;
+                border-radius: 50%;
+                border: 1px solid #363736;
+                background-color: #2627273c;
+                border: none;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                margin-right: 2px;
                 padding: 0;
+                transition: background-color 0.2s ease;
+                font-size: 0; /* Hide text content */
             }
 
-            /* Replace arrow with material icons send icon */
             .send::before {
                 content: 'send';
                 font-family: 'Material Icons';
                 font-size: 20px;
-                color: white;
+                color: #ffffffef;
                 font-weight: normal;
                 font-style: normal;
                 line-height: 1;
@@ -1336,13 +1338,17 @@
                 direction: ltr;
             }
 
-            
+            /* Remove the span display none since we're hiding all text content */
+            .send span {
+                display: none;
+            }
 
-            /* Hide the original text content */
-            .send {
-                font-size: 0;
-                text-indent: -9999px;
-                line-height: 0;
+            .send:hover {
+                background-color: #11111100;
+            }
+
+            .send:active {
+                transform: scale(0.95);
             }
         }
     </style>
