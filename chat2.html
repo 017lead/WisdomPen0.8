@@ -1339,6 +1339,18 @@
             // Custom subtitle tags become headings before block parsing
             text = text.replace(/\|SUB\|([\s\S]*?)\|\/SUB\|/g, '\n### $1\n');
 
+            // --- Repair text where newlines were lost in transit ---
+            // "...worldwide.## Core beliefs" -> put glued headings on their own line
+            text = text.replace(/([^\n#])\s*(#{1,3} )/g, '$1\n\n$2');
+            // Heading text that runs straight into a sentence: close the heading at
+            // sentence-ending punctuation followed by a capital/list start
+            text = text.replace(/^(#{1,3} [^\n]{3,80}?[.:])\s*(?=[A-Zآ-ي])/gm, '$1\n\n');
+            // Glued list markers: "text.- item" or "text.1. item"
+            text = text.replace(/([.!?؟])\s*([-*•] )/g, '$1\n$2');
+            text = text.replace(/([.!?؟])\s*((?:\d{1,2})[.)] )(?=[A-Zآ-ي])/g, '$1\n$2');
+            // Stray doubled periods from joined lines: "commands.." -> "commands."
+            text = text.replace(/([.!?؟])\.(?=\s|$)/gm, '$1');
+
             const lines = text.split('\n');
             const html = [];
             let inUl = false, inOl = false, inQuote = false, paragraph = [];
@@ -1555,11 +1567,14 @@
                         let boundary = buffer.indexOf('\n\n');
 
                         while (boundary !== -1) {
-                            const line = buffer.substring(0, boundary);
+                            const rawEvent = buffer.substring(0, boundary);
                             buffer = buffer.substring(boundary + 2);
 
-                            if (line.startsWith('data: ')) {
-                                const data = line.slice(6);
+                            // SSE: newlines in the payload arrive as multiple "data:" lines
+                            // in one event. Join them back with \n to preserve formatting.
+                            const dataLines = rawEvent.split('\n').filter(l => l.startsWith('data:'));
+                            if (dataLines.length > 0) {
+                                const data = dataLines.map(l => l.replace(/^data: ?/, '')).join('\n');
                                 if (data === '[END]') {
                                     loadingAnimation.remove();
                                     textDiv.innerHTML = formatResponse(fullResponse);
